@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://ebis-engdemo.3tav.si/Finance -->
+<html xml:lang="si" lang="si" class="js wf-museosans-n1-active wf-museosans-n3-active wf-museosans-n7-active wf-museosans-n9-active wf-active"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1250"><title>
+	Računi in plačila
+</title><link id="style" href="./Računi in plačila_files/style201712.css" rel="stylesheet" type="text/css"><link id="style_custom" href="./Računi in plačila_files/style_custom201606.css" rel="stylesheet" type="text/css"><link href="./Računi in plačila_files/gdpr.css" rel="stylesheet" type="text/css"><link href="./Računi in plačila_files/fancySelect.css" rel="stylesheet" type="text/css"><link href="./Računi in plačila_files/jquery.scrollbar.css" rel="stylesheet" type="text/css"><link href="./Računi in plačila_files/css" rel="stylesheet" type="text/css"><link href="./Računi in plačila_files/jquery-ui.css" rel="stylesheet"><link rel="shortcut icon" href="https://ebis-engdemo.3tav.si/favicon.ico"><meta name="description"><meta name="keywords"><meta name="viewport">
+
+	<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta property="og:site_name"><meta property="og:title"><meta property="og:image"><meta property="og:description">
+
+	<script async="" src="./Računi in plačila_files/analytics.js.prenos"></script><script src="./Računi in plačila_files/jquery.min.js.prenos"></script>
+    <script src="./Računi in plačila_files/jquery-ui.min.js.prenos"></script>
+	<script src="./Računi in plačila_files/script_custom201606.js.prenos"></script>
+
+	<script src="./Računi in plačila_files/kfq1ovq.js.prenos"></script>
+	<style type="text/css">.tk-museo-sans{font-family:"museo-sans",sans-serif;}</style><style type="text/css">@font-face{font-family:museo-sans;src:url(https://use.typekit.net/af/712cbe/00000000000000000000e800/23/l?subset_id=1&fvd=n1&v=3) format("woff2"),url(https://use.typekit.net/af/712cbe/00000000000000000000e800/23/d?subset_id=1&fvd=n1&v=3) format("woff"),url(https://use.typekit.net/af/712cbe/00000000000000000000e800/23/a?subset_id=1&fvd=n1&v=3) format("opentype");font-weight:100;font-style:normal;}@font-face{font-family:museo-sans;src:url(https://use.typekit.net/af/966602/00000000000000000000e7fe/23/l?subset_id=1&fvd=n3&v=3) format("woff2"),url(https://use.typekit.net/af/966602/00000000000000000000e7fe/23/d?subset_id=1&fvd=n3&v=3) format("woff"),url(https://use.typekit.net/af/966602/00000000000000000000e7fe/23/a?subset_id=1&fvd=n3&v=3) format("opentype");font-weight:300;font-style:normal;}@font-face{font-family:museo-sans;src:url(https://use.typekit.net/af/7fee16/00000000000000000000e805/23/l?subset_id=1&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/7fee16/00000000000000000000e805/23/d?subset_id=1&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/7fee16/00000000000000000000e805/23/a?subset_id=1&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:museo-sans;src:url(https://use.typekit.net/af/7c327f/00000000000000000000e807/23/l?subset_id=1&fvd=n9&v=3) format("woff2"),url(https://use.typekit.net/af/7c327f/00000000000000000000e807/23/d?subset_id=1&fvd=n9&v=3) format("woff"),url(https://use.typekit.net/af/7c327f/00000000000000000000e807/23/a?subset_id=1&fvd=n9&v=3) format("opentype");font-weight:900;font-style:normal;}</style><script>	    try { Typekit.load(); } catch (e) { }</script>
+	 <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-68364273-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+</head>
+<body id="body" class="elektrika">
+    <form method="post" action="https://ebis-engdemo.3tav.si/Finance" id="mainForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['mainForm'];
+if (!theForm) {
+    theForm = document.mainForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7CC1EB3A">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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">
+</div>
+    <input type="hidden" name="ctl00$_hidMainIndex" id="_hidMainIndex" value="-1">
+    <input type="hidden" name="ctl00$_hidSubIndex" id="_hidSubIndex" value="-1">
+
+    <!-- Header -->
+    <header id="page-header" role="banner" data-method="headerHight">
+        <div class="site-branding">
+		    <h1 class="site-logo"><a href="https://ebis-engdemo.3tav.si/Domov" title="ECE">ECE</a></h1>			
+	    </div>
+        <nav>              
+            <ul class="main-nav">
+                <li class="home-icon"><a href="https://ebis-engdemo.3tav.si/Domov"><i class="nav-icon"><span></span></i>Home</a></li>
+			    <li class="electro-icon"><a href="https://ebis-engdemo.3tav.si/Elektrika/PregledPorabe"><i class="nav-icon"><span></span></i>Electricity</a></li>
+			    <li class="gas-icon"><a href="https://ebis-engdemo.3tav.si/Plin/PregledPorabe"><i class="nav-icon"><span></span></i>Gas</a></li>
+			    <li class="bio-icon"><a href="https://ebis-engdemo.3tav.si/BioMasa/Narocila/Zgodovina"><i class="nav-icon"><span></span></i>Biomass</a></li>
+			    <li class="discount-icon-2"><a href="https://ebis-engdemo.3tav.si/Ugodnosti"><i class="nav-icon"><span></span></i>Special offers</a></li>				
+                <li class="finance-icon"><a href="https://ebis-engdemo.3tav.si/Finance"><i class="nav-icon"><span></span></i>Invoices</a></li>
+			    <li class="contract-icon"><a href="https://ebis-engdemo.3tav.si/Elektrika/Narocila"><i class="nav-icon"><span></span></i>Customer service</a></li>
+               
+				<li id="AdminLink" class="contract-icon"><a href="https://ebis-engdemo.3tav.si/Administracija"><i class="nav-icon"><span></span></i>Administration</a></li>
+            </ul>
+        </nav>
+        <div class="social-box">
+            <ul>
+                <li class="soc-icon facebook">
+                    <a href="https://www.facebook.com/pages/ECE-Elektro-Celje-Energija/109340582569425" target="_blank">
+                        <div class="flip">
+                            <div class="inner">
+                                <div class="sticker front">
+                                    <img src="./Računi in plačila_files/facebook.png" alt="*" width="43" height="41">
+                                </div>
+                                <div class="sticker back">
+                                    <img src="./Računi in plačila_files/facebook.png" alt="*" width="43" height="41">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>                
+                <li class="soc-icon youtube">
+                    <a href="https://www.youtube.com/channel/UCIZ8gtfhmmMyJSh8LBkfD1A" target="_blank">
+                        <div class="flip">
+                            <div class="inner">
+                                <div class="sticker front">
+                                    <img src="./Računi in plačila_files/youtube.png" alt="*" width="42" height="41">                                    
+                                </div>
+                                <div class="sticker back">
+                                    <img src="./Računi in plačila_files/youtube.png" alt="*" width="42" height="41">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="soc-icon mail">
+                    <a href="mailto:prodaja@ece.si">
+                        <div class="flip">
+                            <div class="inner">
+                                <div class="sticker front">
+                                    <img src="./Računi in plačila_files/mail.png" alt="*" width="43" height="41">                                    
+                                </div>
+                                <div class="sticker back">
+                                    <img src="./Računi in plačila_files/mail.png" alt="*" width="43" height="41">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- /Header -->
+    <div class="main">
+        <div id="ProfileBar" class="profile-bar">
+            <div class="inner">
+                <div class="profile-box cf">                    
+                    <div class="profile-info">
+                        <p class="welcome">Welcome</p>                        
+                        <p id="lblUporabnik" class="profile-name">Borut Ajdič</p>
+                        <a class="btn-1 small btn-color-2" href="https://ebis-engdemo.3tav.si/MojProfil"><span title="My profile">My profile</span></a>
+                        <a class="btn-1 small btn-color-3 close" href="https://ebis-engdemo.3tav.si/Odjava"><span title="Logout">Logout</span></a>
+                    </div>
+                </div>
+                <ul class="contact-nav">
+                    <li><a href="https://ebis-engdemo.3tav.si/KontaktirajteNas">Contact us</a></li>
+                    <li><a href="https://ebis-engdemo.3tav.si/MojProfil">Settings</a></li>
+                </ul>
+            </div>
+        </div>
+          <div id="content">
+            <!-- START OF MAIN CONTENT -->
+            
+
+    
+
+    <div class="site-title title-1 icon-finance cf">
+        <h1>Invoices &amp; Payment history</h1>
+    </div>
+    <div class="tariff-box usage-tariff-1 finance-widget">
+        <p class="section-head">Invoices history</p>
+        <div class="inner cf">
+            <div class="col col-1">
+                <p>Payer:</p>
+                
+ <div class="group select blue-sel">                                
+    <div class="fancy-select"><select name="ctl00$MainContentPlaceHolder$ucPlacnikiDropDown$ddwPlacniki" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$MainContentPlaceHolder$ucPlacnikiDropDown$ddwPlacniki\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddwPlacniki" class="fancified" style="width: 1px; height: 1px; display: block; position: absolute; top: 0px; left: 0px; opacity: 0;">
+	<option selected="selected" value="84400">ČIVPP D.O.O., ŠOŠTANJ , TEKAVČEVA CESTA 11, 3325  ŠOŠTANJ                            </option>
+	<option value="1178477">ZELIČ FRIDA  , POLANA 15, 3273  JURKLOŠTER                         </option>
+	<option value="1270747">ŠUŠTARŠIČ EMA  , GROHARJEVA CESTA 9A, 1000  LJUBLJANA                          </option>
+	<option value="1417482">MEŽNAR JOŽEF , GLAVARSTVO 5A, 2391  PREVALJE                           </option>
+	<option value="1541025">SLADIČ FRANC  , KASAZE 87, 3301  PETROVČE                           </option>
+	<option value="1982723">KLANČNIK ERIKA  , MAČKOVEC 16, 3271  ŠENTRUPERT                         </option>
+	<option value="2089322">MEDVEŠČEK IVANKA  , BOHORIČEVA ULICA 13, 8250  BREŽICE</option>
+	<option value="2135773">ROUDI SEBASTIJAN  , NA OTOKU 13, 3000  CELJE                              </option>
+	<option value="2149913">TERČE MITJA  , MALGAJEVA ULICA 8, 3000  CELJE                              </option>
+	<option value="2210372">URŠIČ VITOMIR  , KOVINARSKA ULICA 22, 3220  ŠTORE                              </option>
+	<option value="2350310">BERNARDA MAJCEN S.P.                               , CELJSKA CESTA 3, 3212  VOJNIK                             </option>
+	<option value="2362236">SITAR ANDREJ  , TOMŠIČEVA CESTA 14, 3320  VELENJE                            </option>
+	<option value="2411027">FUCHS DAMJAN  , BOROVŠKA CESTA 85, 4280  KRANJSKA GORA                      </option>
+	<option value="2438404">KOŠEC BERNARDA  , DOLENJA VAS 168, 3312  PREBOLD                            </option>
+	<option value="2607441">TUŠAR JURE , HRUŠEVJE  68, 6225  HRUŠEVJE                           </option>
+	<option value="2609477">KERSNIČ TOMAŽ , ŠEŠKOVA ULICA 6, 1310  RIBNICA                            </option>
+	<option value="2610566">VEBER KLEMEN , LADJA 36, 1215  MEDVODE                            </option>
+	<option value="2624912">KOCJANČIČ EDVIN , BRANIK 79A, 5295  BRANIK                             </option>
+	<option value="61114384">NOVAK JANEZ  , ULICA STANETA BOKALA 8, 4270  JESENICE                           </option>
+	<option value="61406586">PURGAR MARKO  , ALPSKA CESTA 21, 4248  LESCE                              </option>
+	<option value="61410296">REŠ JAKOB  , JELOVŠKA ULICA 9, 4240  RADOVLJICA                         </option>
+	<option value="62341107">MIJATOVIĆ DRAGAN  , CESTA FRANCETA PREŠERNA 3D, 4270  JESENICE                           </option>
+
+</select><div class="trigger">ČIVPP D.O.O., ŠOŠTANJ , TEKAVČEVA CESTA 11, 3325  ŠOŠTANJ                            </div><ul class="options"><li data-raw-value="84400" class="selected">ČIVPP D.O.O., ŠOŠTANJ , TEKAVČEVA CESTA 11, 3325  ŠOŠTANJ                            </li><li data-raw-value="1178477">ZELIČ FRIDA  , POLANA 15, 3273  JURKLOŠTER                         </li><li data-raw-value="1270747">ŠUŠTARŠIČ EMA  , GROHARJEVA CESTA 9A, 1000  LJUBLJANA                          </li><li data-raw-value="1417482">MEŽNAR JOŽEF , GLAVARSTVO 5A, 2391  PREVALJE                           </li><li data-raw-value="1541025">SLADIČ FRANC  , KASAZE 87, 3301  PETROVČE                           </li><li data-raw-value="1982723">KLANČNIK ERIKA  , MAČKOVEC 16, 3271  ŠENTRUPERT                         </li><li data-raw-value="2089322">MEDVEŠČEK IVANKA  , BOHORIČEVA ULICA 13, 8250  BREŽICE</li><li data-raw-value="2135773">ROUDI SEBASTIJAN  , NA OTOKU 13, 3000  CELJE                              </li><li data-raw-value="2149913">TERČE MITJA  , MALGAJEVA ULICA 8, 3000  CELJE                              </li><li data-raw-value="2210372">URŠIČ VITOMIR  , KOVINARSKA ULICA 22, 3220  ŠTORE                              </li><li data-raw-value="2350310">BERNARDA MAJCEN S.P.                               , CELJSKA CESTA 3, 3212  VOJNIK                             </li><li data-raw-value="2362236">SITAR ANDREJ  , TOMŠIČEVA CESTA 14, 3320  VELENJE                            </li><li data-raw-value="2411027">FUCHS DAMJAN  , BOROVŠKA CESTA 85, 4280  KRANJSKA GORA                      </li><li data-raw-value="2438404">KOŠEC BERNARDA  , DOLENJA VAS 168, 3312  PREBOLD                            </li><li data-raw-value="2607441">TUŠAR JURE , HRUŠEVJE  68, 6225  HRUŠEVJE                           </li><li data-raw-value="2609477">KERSNIČ TOMAŽ , ŠEŠKOVA ULICA 6, 1310  RIBNICA                            </li><li data-raw-value="2610566">VEBER KLEMEN , LADJA 36, 1215  MEDVODE                            </li><li data-raw-value="2624912">KOCJANČIČ EDVIN , BRANIK 79A, 5295  BRANIK                             </li><li data-raw-value="61114384">NOVAK JANEZ  , ULICA STANETA BOKALA 8, 4270  JESENICE                           </li><li data-raw-value="61406586">PURGAR MARKO  , ALPSKA CESTA 21, 4248  LESCE                              </li><li data-raw-value="61410296">REŠ JAKOB  , JELOVŠKA ULICA 9, 4240  RADOVLJICA                         </li><li data-raw-value="62341107">MIJATOVIĆ DRAGAN  , CESTA FRANCETA PREŠERNA 3D, 4270  JESENICE                           </li></ul></div>
+</div>
+
+            </div>
+            <div class="col col-2 shorter">
+                <div class="group">
+                    <p>Display period:</p>
+                </div>
+                <div class="group select grey-sel">
+                    <label class="label-1">From</label>
+                    <div class="fancy-select"><select name="ctl00$MainContentPlaceHolder$cmbFaktureObdobjeOd" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$MainContentPlaceHolder$cmbFaktureObdobjeOd\&#39;,\&#39;\&#39;)&#39;, 0)" id="cmbFaktureObdobjeOd" class="fancified" style="width: 1px; height: 1px; display: block; position: absolute; top: 0px; left: 0px; opacity: 0;">
+	<option value="202007">julij 2020</option>
+	<option value="202006">junij 2020</option>
+	<option value="202005">maj 2020</option>
+	<option value="202004">april 2020</option>
+	<option value="202003">marec 2020</option>
+	<option value="202002">februar 2020</option>
+	<option value="202001">januar 2020</option>
+	<option value="201912">december 2019</option>
+	<option value="201911">november 2019</option>
+	<option value="201910">oktober 2019</option>
+	<option value="201909">september 2019</option>
+	<option selected="selected" value="201908">avgust 2019</option>
+	<option value="201907">julij 2019</option>
+	<option value="201906">junij 2019</option>
+	<option value="201905">maj 2019</option>
+	<option value="201904">april 2019</option>
+	<option value="201903">marec 2019</option>
+	<option value="201902">februar 2019</option>
+	<option value="201901">januar 2019</option>
+	<option value="201812">december 2018</option>
+	<option value="201811">november 2018</option>
+	<option value="201810">oktober 2018</option>
+	<option value="201809">september 2018</option>
+	<option value="201808">avgust 2018</option>
+	<option value="201807">julij 2018</option>
+	<option value="201806">junij 2018</option>
+	<option value="201805">maj 2018</option>
+	<option value="201804">april 2018</option>
+	<option value="201803">marec 2018</option>
+	<option value="201802">februar 2018</option>
+	<option value="201801">januar 2018</option>
+	<option value="201712">december 2017</option>
+	<option value="201711">november 2017</option>
+	<option value="201710">oktober 2017</option>
+	<option value="201709">september 2017</option>
+	<option value="201708">avgust 2017</option>
+	<option value="201707">julij 2017</option>
+	<option value="201706">junij 2017</option>
+	<option value="201705">maj 2017</option>
+	<option value="201704">april 2017</option>
+	<option value="201703">marec 2017</option>
+	<option value="201702">februar 2017</option>
+	<option value="201701">januar 2017</option>
+	<option value="201612">december 2016</option>
+	<option value="201611">november 2016</option>
+	<option value="201610">oktober 2016</option>
+	<option value="201609">september 2016</option>
+	<option value="201608">avgust 2016</option>
+	<option value="201607">julij 2016</option>
+	<option value="201606">junij 2016</option>
+	<option value="201605">maj 2016</option>
+	<option value="201604">april 2016</option>
+	<option value="201603">marec 2016</option>
+	<option value="201602">februar 2016</option>
+	<option value="201601">januar 2016</option>
+	<option value="201512">december 2015</option>
+	<option value="201511">november 2015</option>
+	<option value="201510">oktober 2015</option>
+	<option value="201509">september 2015</option>
+	<option value="201508">avgust 2015</option>
+	<option value="201507">julij 2015</option>
+	<option value="201506">junij 2015</option>
+	<option value="201505">maj 2015</option>
+	<option value="201504">april 2015</option>
+	<option value="201503">marec 2015</option>
+	<option value="201502">februar 2015</option>
+	<option value="201501">januar 2015</option>
+	<option value="201412">december 2014</option>
+	<option value="201411">november 2014</option>
+	<option value="201410">oktober 2014</option>
+	<option value="201409">september 2014</option>
+	<option value="201408">avgust 2014</option>
+	<option value="201407">julij 2014</option>
+	<option value="201406">junij 2014</option>
+	<option value="201405">maj 2014</option>
+	<option value="201404">april 2014</option>
+	<option value="201403">marec 2014</option>
+	<option value="201402">februar 2014</option>
+	<option value="201401">januar 2014</option>
+	<option value="201312">december 2013</option>
+	<option value="201311">november 2013</option>
+	<option value="201310">oktober 2013</option>
+	<option value="201309">september 2013</option>
+	<option value="201308">avgust 2013</option>
+	<option value="201307">julij 2013</option>
+	<option value="201306">junij 2013</option>
+	<option value="201305">maj 2013</option>
+	<option value="201304">april 2013</option>
+	<option value="201303">marec 2013</option>
+	<option value="201302">februar 2013</option>
+	<option value="201301">januar 2013</option>
+	<option value="201212">december 2012</option>
+	<option value="201211">november 2012</option>
+	<option value="201210">oktober 2012</option>
+	<option value="201209">september 2012</option>
+	<option value="201208">avgust 2012</option>
+	<option value="201207">julij 2012</option>
+	<option value="201206">junij 2012</option>
+	<option value="201205">maj 2012</option>
+	<option value="201204">april 2012</option>
+	<option value="201203">marec 2012</option>
+	<option value="201202">februar 2012</option>
+	<option value="201201">januar 2012</option>
+	<option value="201112">december 2011</option>
+	<option value="201111">november 2011</option>
+	<option value="201110">oktober 2011</option>
+	<option value="201109">september 2011</option>
+	<option value="201108">avgust 2011</option>
+	<option value="201107">julij 2011</option>
+	<option value="201106">junij 2011</option>
+	<option value="201105">maj 2011</option>
+	<option value="201104">april 2011</option>
+	<option value="201103">marec 2011</option>
+	<option value="201102">februar 2011</option>
+	<option value="201101">januar 2011</option>
+	<option value="201012">december 2010</option>
+	<option value="201011">november 2010</option>
+	<option value="201010">oktober 2010</option>
+	<option value="201009">september 2010</option>
+	<option value="201008">avgust 2010</option>
+	<option value="201007">julij 2010</option>
+	<option value="201006">junij 2010</option>
+	<option value="201005">maj 2010</option>
+	<option value="201004">april 2010</option>
+	<option value="201003">marec 2010</option>
+	<option value="201002">februar 2010</option>
+	<option value="201001">januar 2010</option>
+
+</select><div class="trigger">avgust 2019</div><ul class="options"><li data-raw-value="202007">julij 2020</li><li data-raw-value="202006">junij 2020</li><li data-raw-value="202005">maj 2020</li><li data-raw-value="202004">april 2020</li><li data-raw-value="202003">marec 2020</li><li data-raw-value="202002">februar 2020</li><li data-raw-value="202001">januar 2020</li><li data-raw-value="201912">december 2019</li><li data-raw-value="201911">november 2019</li><li data-raw-value="201910">oktober 2019</li><li data-raw-value="201909">september 2019</li><li data-raw-value="201908" class="selected">avgust 2019</li><li data-raw-value="201907">julij 2019</li><li data-raw-value="201906">junij 2019</li><li data-raw-value="201905">maj 2019</li><li data-raw-value="201904">april 2019</li><li data-raw-value="201903">marec 2019</li><li data-raw-value="201902">februar 2019</li><li data-raw-value="201901">januar 2019</li><li data-raw-value="201812">december 2018</li><li data-raw-value="201811">november 2018</li><li data-raw-value="201810">oktober 2018</li><li data-raw-value="201809">september 2018</li><li data-raw-value="201808">avgust 2018</li><li data-raw-value="201807">julij 2018</li><li data-raw-value="201806">junij 2018</li><li data-raw-value="201805">maj 2018</li><li data-raw-value="201804">april 2018</li><li data-raw-value="201803">marec 2018</li><li data-raw-value="201802">februar 2018</li><li data-raw-value="201801">januar 2018</li><li data-raw-value="201712">december 2017</li><li data-raw-value="201711">november 2017</li><li data-raw-value="201710">oktober 2017</li><li data-raw-value="201709">september 2017</li><li data-raw-value="201708">avgust 2017</li><li data-raw-value="201707">julij 2017</li><li data-raw-value="201706">junij 2017</li><li data-raw-value="201705">maj 2017</li><li data-raw-value="201704">april 2017</li><li data-raw-value="201703">marec 2017</li><li data-raw-value="201702">februar 2017</li><li data-raw-value="201701">januar 2017</li><li data-raw-value="201612">december 2016</li><li data-raw-value="201611">november 2016</li><li data-raw-value="201610">oktober 2016</li><li data-raw-value="201609">september 2016</li><li data-raw-value="201608">avgust 2016</li><li data-raw-value="201607">julij 2016</li><li data-raw-value="201606">junij 2016</li><li data-raw-value="201605">maj 2016</li><li data-raw-value="201604">april 2016</li><li data-raw-value="201603">marec 2016</li><li data-raw-value="201602">februar 2016</li><li data-raw-value="201601">januar 2016</li><li data-raw-value="201512">december 2015</li><li data-raw-value="201511">november 2015</li><li data-raw-value="201510">oktober 2015</li><li data-raw-value="201509">september 2015</li><li data-raw-value="201508">avgust 2015</li><li data-raw-value="201507">julij 2015</li><li data-raw-value="201506">junij 2015</li><li data-raw-value="201505">maj 2015</li><li data-raw-value="201504">april 2015</li><li data-raw-value="201503">marec 2015</li><li data-raw-value="201502">februar 2015</li><li data-raw-value="201501">januar 2015</li><li data-raw-value="201412">december 2014</li><li data-raw-value="201411">november 2014</li><li data-raw-value="201410">oktober 2014</li><li data-raw-value="201409">september 2014</li><li data-raw-value="201408">avgust 2014</li><li data-raw-value="201407">julij 2014</li><li data-raw-value="201406">junij 2014</li><li data-raw-value="201405">maj 2014</li><li data-raw-value="201404">april 2014</li><li data-raw-value="201403">marec 2014</li><li data-raw-value="201402">februar 2014</li><li data-raw-value="201401">januar 2014</li><li data-raw-value="201312">december 2013</li><li data-raw-value="201311">november 2013</li><li data-raw-value="201310">oktober 2013</li><li data-raw-value="201309">september 2013</li><li data-raw-value="201308">avgust 2013</li><li data-raw-value="201307">julij 2013</li><li data-raw-value="201306">junij 2013</li><li data-raw-value="201305">maj 2013</li><li data-raw-value="201304">april 2013</li><li data-raw-value="201303">marec 2013</li><li data-raw-value="201302">februar 2013</li><li data-raw-value="201301">januar 2013</li><li data-raw-value="201212">december 2012</li><li data-raw-value="201211">november 2012</li><li data-raw-value="201210">oktober 2012</li><li data-raw-value="201209">september 2012</li><li data-raw-value="201208">avgust 2012</li><li data-raw-value="201207">julij 2012</li><li data-raw-value="201206">junij 2012</li><li data-raw-value="201205">maj 2012</li><li data-raw-value="201204">april 2012</li><li data-raw-value="201203">marec 2012</li><li data-raw-value="201202">februar 2012</li><li data-raw-value="201201">januar 2012</li><li data-raw-value="201112">december 2011</li><li data-raw-value="201111">november 2011</li><li data-raw-value="201110">oktober 2011</li><li data-raw-value="201109">september 2011</li><li data-raw-value="201108">avgust 2011</li><li data-raw-value="201107">julij 2011</li><li data-raw-value="201106">junij 2011</li><li data-raw-value="201105">maj 2011</li><li data-raw-value="201104">april 2011</li><li data-raw-value="201103">marec 2011</li><li data-raw-value="201102">februar 2011</li><li data-raw-value="201101">januar 2011</li><li data-raw-value="201012">december 2010</li><li data-raw-value="201011">november 2010</li><li data-raw-value="201010">oktober 2010</li><li data-raw-value="201009">september 2010</li><li data-raw-value="201008">avgust 2010</li><li data-raw-value="201007">julij 2010</li><li data-raw-value="201006">junij 2010</li><li data-raw-value="201005">maj 2010</li><li data-raw-value="201004">april 2010</li><li data-raw-value="201003">marec 2010</li><li data-raw-value="201002">februar 2010</li><li data-raw-value="201001">januar 2010</li></ul></div>
+                </div>
+                <div class="group select grey-sel">
+                    <label class="label-1">To</label>
+                    <div class="fancy-select"><select name="ctl00$MainContentPlaceHolder$cmbFaktureObdobjeDo" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$MainContentPlaceHolder$cmbFaktureObdobjeDo\&#39;,\&#39;\&#39;)&#39;, 0)" id="cmbFaktureObdobjeDo" class="fancified" style="width: 1px; height: 1px; display: block; position: absolute; top: 0px; left: 0px; opacity: 0;">
+	<option selected="selected" value="202007">julij 2020</option>
+	<option value="202006">junij 2020</option>
+	<option value="202005">maj 2020</option>
+	<option value="202004">april 2020</option>
+	<option value="202003">marec 2020</option>
+	<option value="202002">februar 2020</option>
+	<option value="202001">januar 2020</option>
+	<option value="201912">december 2019</option>
+	<option value="201911">november 2019</option>
+	<option value="201910">oktober 2019</option>
+	<option value="201909">september 2019</option>
+	<option value="201908">avgust 2019</option>
+	<option value="201907">julij 2019</option>
+	<option value="201906">junij 2019</option>
+	<option value="201905">maj 2019</option>
+	<option value="201904">april 2019</option>
+	<option value="201903">marec 2019</option>
+	<option value="201902">februar 2019</option>
+	<option value="201901">januar 2019</option>
+	<option value="201812">december 2018</option>
+	<option value="201811">november 2018</option>
+	<option value="201810">oktober 2018</option>
+	<option value="201809">september 2018</option>
+	<option value="201808">avgust 2018</option>
+	<option value="201807">julij 2018</option>
+	<option value="201806">junij 2018</option>
+	<option value="201805">maj 2018</option>
+	<option value="201804">april 2018</option>
+	<option value="201803">marec 2018</option>
+	<option value="201802">februar 2018</option>
+	<option value="201801">januar 2018</option>
+	<option value="201712">december 2017</option>
+	<option value="201711">november 2017</option>
+	<option value="201710">oktober 2017</option>
+	<option value="201709">september 2017</option>
+	<option value="201708">avgust 2017</option>
+	<option value="201707">julij 2017</option>
+	<option value="201706">junij 2017</option>
+	<option value="201705">maj 2017</option>
+	<option value="201704">april 2017</option>
+	<option value="201703">marec 2017</option>
+	<option value="201702">februar 2017</option>
+	<option value="201701">januar 2017</option>
+	<option value="201612">december 2016</option>
+	<option value="201611">november 2016</option>
+	<option value="201610">oktober 2016</option>
+	<option value="201609">september 2016</option>
+	<option value="201608">avgust 2016</option>
+	<option value="201607">julij 2016</option>
+	<option value="201606">junij 2016</option>
+	<option value="201605">maj 2016</option>
+	<option value="201604">april 2016</option>
+	<option value="201603">marec 2016</option>
+	<option value="201602">februar 2016</option>
+	<option value="201601">januar 2016</option>
+	<option value="201512">december 2015</option>
+	<option value="201511">november 2015</option>
+	<option value="201510">oktober 2015</option>
+	<option value="201509">september 2015</option>
+	<option value="201508">avgust 2015</option>
+	<option value="201507">julij 2015</option>
+	<option value="201506">junij 2015</option>
+	<option value="201505">maj 2015</option>
+	<option value="201504">april 2015</option>
+	<option value="201503">marec 2015</option>
+	<option value="201502">februar 2015</option>
+	<option value="201501">januar 2015</option>
+	<option value="201412">december 2014</option>
+	<option value="201411">november 2014</option>
+	<option value="201410">oktober 2014</option>
+	<option value="201409">september 2014</option>
+	<option value="201408">avgust 2014</option>
+	<option value="201407">julij 2014</option>
+	<option value="201406">junij 2014</option>
+	<option value="201405">maj 2014</option>
+	<option value="201404">april 2014</option>
+	<option value="201403">marec 2014</option>
+	<option value="201402">februar 2014</option>
+	<option value="201401">januar 2014</option>
+	<option value="201312">december 2013</option>
+	<option value="201311">november 2013</option>
+	<option value="201310">oktober 2013</option>
+	<option value="201309">september 2013</option>
+	<option value="201308">avgust 2013</option>
+	<option value="201307">julij 2013</option>
+	<option value="201306">junij 2013</option>
+	<option value="201305">maj 2013</option>
+	<option value="201304">april 2013</option>
+	<option value="201303">marec 2013</option>
+	<option value="201302">februar 2013</option>
+	<option value="201301">januar 2013</option>
+	<option value="201212">december 2012</option>
+	<option value="201211">november 2012</option>
+	<option value="201210">oktober 2012</option>
+	<option value="201209">september 2012</option>
+	<option value="201208">avgust 2012</option>
+	<option value="201207">julij 2012</option>
+	<option value="201206">junij 2012</option>
+	<option value="201205">maj 2012</option>
+	<option value="201204">april 2012</option>
+	<option value="201203">marec 2012</option>
+	<option value="201202">februar 2012</option>
+	<option value="201201">januar 2012</option>
+	<option value="201112">december 2011</option>
+	<option value="201111">november 2011</option>
+	<option value="201110">oktober 2011</option>
+	<option value="201109">september 2011</option>
+	<option value="201108">avgust 2011</option>
+	<option value="201107">julij 2011</option>
+	<option value="201106">junij 2011</option>
+	<option value="201105">maj 2011</option>
+	<option value="201104">april 2011</option>
+	<option value="201103">marec 2011</option>
+	<option value="201102">februar 2011</option>
+	<option value="201101">januar 2011</option>
+	<option value="201012">december 2010</option>
+	<option value="201011">november 2010</option>
+	<option value="201010">oktober 2010</option>
+	<option value="201009">september 2010</option>
+	<option value="201008">avgust 2010</option>
+	<option value="201007">julij 2010</option>
+	<option value="201006">junij 2010</option>
+	<option value="201005">maj 2010</option>
+	<option value="201004">april 2010</option>
+	<option value="201003">marec 2010</option>
+	<option value="201002">februar 2010</option>
+	<option value="201001">januar 2010</option>
+
+</select><div class="trigger">julij 2020</div><ul class="options"><li data-raw-value="202007" class="selected">julij 2020</li><li data-raw-value="202006">junij 2020</li><li data-raw-value="202005">maj 2020</li><li data-raw-value="202004">april 2020</li><li data-raw-value="202003">marec 2020</li><li data-raw-value="202002">februar 2020</li><li data-raw-value="202001">januar 2020</li><li data-raw-value="201912">december 2019</li><li data-raw-value="201911">november 2019</li><li data-raw-value="201910">oktober 2019</li><li data-raw-value="201909">september 2019</li><li data-raw-value="201908">avgust 2019</li><li data-raw-value="201907">julij 2019</li><li data-raw-value="201906">junij 2019</li><li data-raw-value="201905">maj 2019</li><li data-raw-value="201904">april 2019</li><li data-raw-value="201903">marec 2019</li><li data-raw-value="201902">februar 2019</li><li data-raw-value="201901">januar 2019</li><li data-raw-value="201812">december 2018</li><li data-raw-value="201811">november 2018</li><li data-raw-value="201810">oktober 2018</li><li data-raw-value="201809">september 2018</li><li data-raw-value="201808">avgust 2018</li><li data-raw-value="201807">julij 2018</li><li data-raw-value="201806">junij 2018</li><li data-raw-value="201805">maj 2018</li><li data-raw-value="201804">april 2018</li><li data-raw-value="201803">marec 2018</li><li data-raw-value="201802">februar 2018</li><li data-raw-value="201801">januar 2018</li><li data-raw-value="201712">december 2017</li><li data-raw-value="201711">november 2017</li><li data-raw-value="201710">oktober 2017</li><li data-raw-value="201709">september 2017</li><li data-raw-value="201708">avgust 2017</li><li data-raw-value="201707">julij 2017</li><li data-raw-value="201706">junij 2017</li><li data-raw-value="201705">maj 2017</li><li data-raw-value="201704">april 2017</li><li data-raw-value="201703">marec 2017</li><li data-raw-value="201702">februar 2017</li><li data-raw-value="201701">januar 2017</li><li data-raw-value="201612">december 2016</li><li data-raw-value="201611">november 2016</li><li data-raw-value="201610">oktober 2016</li><li data-raw-value="201609">september 2016</li><li data-raw-value="201608">avgust 2016</li><li data-raw-value="201607">julij 2016</li><li data-raw-value="201606">junij 2016</li><li data-raw-value="201605">maj 2016</li><li data-raw-value="201604">april 2016</li><li data-raw-value="201603">marec 2016</li><li data-raw-value="201602">februar 2016</li><li data-raw-value="201601">januar 2016</li><li data-raw-value="201512">december 2015</li><li data-raw-value="201511">november 2015</li><li data-raw-value="201510">oktober 2015</li><li data-raw-value="201509">september 2015</li><li data-raw-value="201508">avgust 2015</li><li data-raw-value="201507">julij 2015</li><li data-raw-value="201506">junij 2015</li><li data-raw-value="201505">maj 2015</li><li data-raw-value="201504">april 2015</li><li data-raw-value="201503">marec 2015</li><li data-raw-value="201502">februar 2015</li><li data-raw-value="201501">januar 2015</li><li data-raw-value="201412">december 2014</li><li data-raw-value="201411">november 2014</li><li data-raw-value="201410">oktober 2014</li><li data-raw-value="201409">september 2014</li><li data-raw-value="201408">avgust 2014</li><li data-raw-value="201407">julij 2014</li><li data-raw-value="201406">junij 2014</li><li data-raw-value="201405">maj 2014</li><li data-raw-value="201404">april 2014</li><li data-raw-value="201403">marec 2014</li><li data-raw-value="201402">februar 2014</li><li data-raw-value="201401">januar 2014</li><li data-raw-value="201312">december 2013</li><li data-raw-value="201311">november 2013</li><li data-raw-value="201310">oktober 2013</li><li data-raw-value="201309">september 2013</li><li data-raw-value="201308">avgust 2013</li><li data-raw-value="201307">julij 2013</li><li data-raw-value="201306">junij 2013</li><li data-raw-value="201305">maj 2013</li><li data-raw-value="201304">april 2013</li><li data-raw-value="201303">marec 2013</li><li data-raw-value="201302">februar 2013</li><li data-raw-value="201301">januar 2013</li><li data-raw-value="201212">december 2012</li><li data-raw-value="201211">november 2012</li><li data-raw-value="201210">oktober 2012</li><li data-raw-value="201209">september 2012</li><li data-raw-value="201208">avgust 2012</li><li data-raw-value="201207">julij 2012</li><li data-raw-value="201206">junij 2012</li><li data-raw-value="201205">maj 2012</li><li data-raw-value="201204">april 2012</li><li data-raw-value="201203">marec 2012</li><li data-raw-value="201202">februar 2012</li><li data-raw-value="201201">januar 2012</li><li data-raw-value="201112">december 2011</li><li data-raw-value="201111">november 2011</li><li data-raw-value="201110">oktober 2011</li><li data-raw-value="201109">september 2011</li><li data-raw-value="201108">avgust 2011</li><li data-raw-value="201107">julij 2011</li><li data-raw-value="201106">junij 2011</li><li data-raw-value="201105">maj 2011</li><li data-raw-value="201104">april 2011</li><li data-raw-value="201103">marec 2011</li><li data-raw-value="201102">februar 2011</li><li data-raw-value="201101">januar 2011</li><li data-raw-value="201012">december 2010</li><li data-raw-value="201011">november 2010</li><li data-raw-value="201010">oktober 2010</li><li data-raw-value="201009">september 2010</li><li data-raw-value="201008">avgust 2010</li><li data-raw-value="201007">julij 2010</li><li data-raw-value="201006">junij 2010</li><li data-raw-value="201005">maj 2010</li><li data-raw-value="201004">april 2010</li><li data-raw-value="201003">marec 2010</li><li data-raw-value="201002">februar 2010</li><li data-raw-value="201001">januar 2010</li></ul></div>
+                </div>
+                
+                
+                <a id="PlacilaIzvoz" class="btn-1 small btn-color-2" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$PlacilaIzvoz&#39;,&#39;&#39;)">
+                    <span title="Export">Export</span>
+                </a>
+
+                
+                <a id="btnFakturePrikaz" class="btn-1 small btn-color-2" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$btnFakturePrikaz&#39;,&#39;&#39;)">
+                            <span title="Refresh">Refresh</span>
+                </a>
+
+            </div>
+            <div class="col col-2 shorter">
+                <div class="group">
+                    <p>Display for meter point:</p>
+                </div>
+                <div class="group select grey-sel">
+                    <div class="fancy-select"><select name="ctl00$MainContentPlaceHolder$cmbFaktureMM" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$MainContentPlaceHolder$cmbFaktureMM\&#39;,\&#39;\&#39;)&#39;, 0)" id="cmbFaktureMM" class="fancified" style="width: 1px; height: 1px; display: block; position: absolute; top: 0px; left: 0px; opacity: 0;">
+	<option selected="selected" value="-1">Vsa merilna mesta</option>
+	<option value="96004">SKUPNOST STANOVALCEV, TEKAVČEVA CESTA 13, 3325 ŠOŠTANJ, 2-10602</option>
+	<option value="99938">POSLOVNI PROSTORI, TRG SVOBODE 12, 3325 ŠOŠTANJ, 2-10479</option>
+	<option value="100034">SKUPNA RABA, TRG SVOBODE 5, 3325 ŠOŠTANJ, 2-10531</option>
+	<option value="130334">SODIŠČE VELENJE, PREŠERNOVA CESTA 1, 3320 VELENJE, 2-11054</option>
+
+</select><div class="trigger">Vsa merilna mesta</div><ul class="options"><li data-raw-value="-1" class="selected">Vsa merilna mesta</li><li data-raw-value="96004">SKUPNOST STANOVALCEV, TEKAVČEVA CESTA 13, 3325 ŠOŠTANJ, 2-10602</li><li data-raw-value="99938">POSLOVNI PROSTORI, TRG SVOBODE 12, 3325 ŠOŠTANJ, 2-10479</li><li data-raw-value="100034">SKUPNA RABA, TRG SVOBODE 5, 3325 ŠOŠTANJ, 2-10531</li><li data-raw-value="130334">SODIŠČE VELENJE, PREŠERNOVA CESTA 1, 3320 VELENJE, 2-11054</li></ul></div>
+                </div>
+               </div>
+        </div>
+    </div>
+
+
+    <div class="table-custom table-2">
+        <div>
+	<table class="GridView" cellspacing="0" rules="all" border="1" id="dgRacuni" style="border-collapse:collapse;">
+		<tbody><tr>
+			<th scope="col">
+                        <a id="ObdobjeLinkButton" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$dgRacuni$ctl01$ObdobjeLinkButton&#39;,&#39;&#39;)">Billing period</a>
+                    </th><th scope="col">
+                        <a id="StevilkaFaktureLinkButton" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$dgRacuni$ctl01$StevilkaFaktureLinkButton&#39;,&#39;&#39;)">Invoice no.</a>
+                    </th><th scope="col">
+                        <a id="MerilnaMestaLinkButton" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$dgRacuni$ctl01$MerilnaMestaLinkButton&#39;,&#39;&#39;)">Meter points</a>
+                    </th><th scope="col">
+                        <a id="lbZnesekBremenitve" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$dgRacuni$ctl01$lbZnesekBremenitve&#39;,&#39;&#39;)">Debit</a>
+                    </th><th scope="col">
+                        <a id="lbVALUTA_FAKTURE" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$dgRacuni$ctl01$lbVALUTA_FAKTURE&#39;,&#39;&#39;)">Due date</a>
+                    </th><th scope="col">
+                        <a id="PlacanoLinkButton" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$dgRacuni$ctl01$PlacanoLinkButton&#39;,&#39;&#39;)">Credit</a>
+                    </th><th scope="col">
+                        <a id="ZnesekOdprtoLinkButton" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$dgRacuni$ctl01$ZnesekOdprtoLinkButton&#39;,&#39;&#39;)">Open amt.</a>
+                    </th><th scope="col">                       
+                        Invoice PDF 
+                    </th>
+		</tr><tr class="no-data">
+			<td colspan="8">
+                <span>Za izbrano obdobje ni izstavljenih računov oziroma je potekel čas za pozvedbo. Spremenite iskalne pogoje in poskusite ponovno.</span>
+            </td>
+		</tr>
+	</tbody></table>
+</div>
+        <div>
+	<table class="GridView" cellspacing="0" rules="all" border="1" id="dgDolg" style="border-collapse:collapse;">
+		<thead>
+			<tr>
+				<th scope="col">
+                        <a id="NazivDolgaLinkButton" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$dgDolg$ctl01$NazivDolgaLinkButton&#39;,&#39;&#39;)">Naziv dolga</a>
+                    </th><th scope="col">
+                        <a id="lbZnesekBremenitve" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$dgDolg$ctl01$lbZnesekBremenitve&#39;,&#39;&#39;)">Breme</a>
+                    </th><th scope="col">
+                        <a id="OpombaLinkButton" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$dgDolg$ctl01$OpombaLinkButton&#39;,&#39;&#39;)">Opomba</a>
+                    </th>
+			</tr>
+		</thead><tbody>
+			<tr class="GridViewRow">
+				<td>
+                        Energija
+                    </td><td>
+                        1.384,68 €
+                    </td><td>
+                        
+                    </td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+        <p id="financeTelefonTocke" class="financeTocke">WSRouting config for method 'EbisValidateSession' not configured!</p>
+    </div>
+    
+
+    
+
+    <script type="text/javascript">
+    function ShowPopupMsg(message) {
+        $(function () {
+            $("#dialogMsg").html(message);
+            $("#dialogMsg").dialog({
+                title: "Obvestilo",
+                buttons: {
+                    Zapri: function () {
+                        $(this).dialog('close');
+                    }
+                },
+                modal: true
+            });
+        });
+    };
+</script>
+<div id="dialogMsg" style="display: none"></div>
+
+
+        </div>
+    </div>
+    
+    
+    
+    </form>
+
+
+</body></html>

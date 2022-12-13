@@ -1,0 +1,277 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using RestSharp;
+using RestSharp.Authenticators;
+using System.Configuration;
+using System.Net;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.IO;
+
+namespace mSignLib
+{
+    public class mSignService
+    {
+        private string _baseUrl;
+        private string _token;
+        private int _clientTimeout = 0;
+
+        public void Init()
+        {
+            try
+            {
+                _baseUrl = ConfigurationManager.AppSettings["EndpointUrl"].ToString();
+                _token = ConfigurationManager.AppSettings["ApiToken"].ToString();
+                int clientTimeout = 0;
+                if (int.TryParse(ConfigurationManager.AppSettings["ClientTimeout"].ToString(), out clientTimeout))
+                {
+                    if (clientTimeout > 0)
+                        _clientTimeout = clientTimeout;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(string.Format("Config error: {0}", ex.Message));
+            }
+        }
+
+        private RestClient GetClient()
+        {
+            var client = new RestClient(_baseUrl);
+
+            client.Timeout = -1;
+            //if (_clientTimeout > 0)            
+            //    client.Timeout = _clientTimeout;
+
+            return client;
+        }
+
+        private string GetAuthHeader()
+        {
+            return string.Format("Bearer {0}", _token);
+        }
+
+        //  Get list of documents
+        public string GetDocuments()
+        {
+            var client = GetClient();
+            var request = new RestRequest("document", Method.GET);
+            request.AddHeader("Authorization", GetAuthHeader());
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            var response = client.Execute(request);
+
+            if (response.ErrorMessage != null)
+                throw new Exception(response.ErrorMessage);
+
+            return response.Content;
+        }
+
+        //  Get list of documents by status
+        public string GetDocuments(int status)
+        {
+            var client = GetClient();
+            var request = new RestRequest("document?status={status}", Method.GET);
+            request.AddHeader("Authorization", GetAuthHeader());
+            request.AddParameter("status", status, ParameterType.UrlSegment);
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+
+            var response = client.Execute(request);
+
+            if (response.ErrorMessage != null)
+                throw new Exception(response.ErrorMessage);
+
+            return response.Content;
+        }
+
+        public List<GetDocumentsDTO> GetDocumentsDTO(string json)
+        {
+            return JsonConvert.DeserializeObject<List<GetDocumentsDTO>>(json);
+        }
+
+        public GetDocumentsDTO GetDocumentDTO(string json)
+        {
+            return JsonConvert.DeserializeObject<GetDocumentsDTO>(json);
+        }
+
+        //  Get document
+        public string GetDocument(int id)
+        {
+            var client = GetClient();
+            var request = new RestRequest("document/{id}", Method.GET);
+            request.AddHeader("Authorization", GetAuthHeader());
+            request.AddParameter("id", id, ParameterType.UrlSegment);
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+
+            var response = client.Execute(request);
+
+            if (response.ErrorMessage != null)
+                throw new Exception(response.ErrorMessage);
+
+            return response.Content;
+        }
+
+        //  Create new document
+        public string CreateDocument(CreateDocumentDTO document)
+        {
+            var client = GetClient();
+            var request = new RestRequest("document", Method.POST);
+            request.AddHeader("Authorization", GetAuthHeader());
+            request.AddHeader("Content-Type", "application/json");
+
+            var documentJSON = JsonConvert.SerializeObject(document);
+            request.AddParameter("application/json", documentJSON, ParameterType.RequestBody);
+
+            //File.WriteAllText(@"c:\\temp\\mSign\\request.txt", documentJSON);
+
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+
+            var response = client.Execute(request);
+
+            if (response.ErrorMessage != null)
+                throw new Exception(response.ErrorMessage);
+
+            return response.Content;
+        }
+
+        public int GetCreateDocumentId(string ret)
+        {
+            int id = -1;
+            var data = (JObject)JsonConvert.DeserializeObject(ret);
+            int.TryParse(data["id"].Value<string>(), out id);
+            return id;
+        }
+
+        public int GetCreateSharedDocumentId(string ret)
+        {
+            int id = -1;
+            var data = (JObject)JsonConvert.DeserializeObject(ret);
+            int.TryParse(data["documentId"].Value<string>(), out id);
+            return id;
+        }
+
+        public string GetCreateSharedDocumentToken(string ret)
+        {
+            var data = (JObject)JsonConvert.DeserializeObject(ret);
+            var token = data["token"].Value<string>();
+            return token;
+        }
+
+        //  Create new document
+        public string CreateSharedDocument(CreateSharedDocumentDTO document)
+        {
+            var client = GetClient();
+            var request = new RestRequest("shared-document", Method.POST);
+            request.AddHeader("Authorization", GetAuthHeader());
+            request.AddHeader("Content-Type", "application/json");
+
+            var documentJSON = JsonConvert.SerializeObject(document);
+            request.AddParameter("application/json", documentJSON, ParameterType.RequestBody);
+
+            //File.WriteAllText(@"c:\\temp\\mSign\\request_shared.txt", documentJSON);
+
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+
+            var response = client.Execute(request);
+
+            if (response.ErrorMessage != null)
+                throw new Exception(response.ErrorMessage);
+
+            return response.Content;
+        }
+
+        //  Create new document
+        public string CreateSharedDocument(CreateSharedDocumentDTO document, bool sendMail)
+        {
+            var client = GetClient();
+            //var request = new RestRequest("shared-document", Method.POST);
+            var request = new RestRequest(string.Format("shared-document?sendEmail={0}", sendMail.ToString().ToLower()), Method.POST);
+            request.AddHeader("Authorization", GetAuthHeader());
+            request.AddHeader("Content-Type", "application/json");
+
+            var documentJSON = JsonConvert.SerializeObject(document);
+            request.AddParameter("application/json", documentJSON, ParameterType.RequestBody);
+            //request.AddParameter("sendEmail", sendMail.ToString(), ParameterType.UrlSegment);
+
+
+            //File.WriteAllText(@"c:\\temp\\mSign\\request_shared.txt", documentJSON);
+
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+
+            var response = client.Execute(request);
+
+            if (response.ErrorMessage != null)
+                throw new Exception(response.ErrorMessage);
+
+            return response.Content;
+        }
+
+        public CreateSharedDocumentReturnDTO GetCreateSharedDocumentDTO(string json)
+        {
+            var r = JsonConvert.DeserializeObject<CreateSharedDocumentReturnDTO>(json);
+            return r;
+        }
+        public string GetSignedDocumentBase64(string json)
+        {
+            // vrni datoteko iz JSON
+            var data = (JObject)JsonConvert.DeserializeObject(json);
+            var content = (string)data["attachments"][0]["content"];
+            return content;
+        }
+
+        public List<Attachment> GetSignedDocumentAttachments(string json, int stevilo)
+        {
+            var attachments = new List<Attachment>();
+            try
+            {
+                var data = (JObject)JsonConvert.DeserializeObject(json);
+                for (var i = 0; i < stevilo; i++)
+                {
+                    var fname = (string)data["attachments"][i]["fileName"];
+                    var fcontent = (string)data["attachments"][i]["content"];
+                    attachments.Add(new Attachment() { fileName = fname, content = fcontent });
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return attachments;
+        }
+
+        public byte[] GetSignedDocumentBytes(string documentBase64)
+        {
+            // convert za DOC bazo
+            return System.Convert.FromBase64String(documentBase64);
+        }
+
+        public byte[] GetSignedDocumentPDF(string json)
+        {
+            // vrne direktno PDF datoteko iz JSON
+            var data = (JObject)JsonConvert.DeserializeObject(json);
+            return System.Convert.FromBase64String((string)data["attachments"][0]["content"]);
+        }
+
+        // url za podpis na web vmesniku (različen od API)
+        // TODO dodaj base url v config
+        public string GetSignURL(string token)
+        {
+            return string.Format("{0}/document/sign?t={1}&lng=sl", _baseUrl, token).Replace(@"/v1/", string.Empty).Replace("-api", string.Empty);
+        }
+
+
+    }
+}

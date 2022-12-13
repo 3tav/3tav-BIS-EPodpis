@@ -1,0 +1,713 @@
+﻿/* ==================================================
+    =Custom override
+===================================================== */
+.half {
+    bottom: 150px;
+}
+
+.login {
+    bottom: 0px !Important;
+}
+
+.register .container h3 {
+    font-family: 'lato', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0069ab;
+    text-align: justify;
+    padding-top: 0;
+    letter-spacing: 0;
+    border-bottom: 0px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.forgot-password h3 {
+    font-family: 'lato', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0069ab;
+    text-align: justify;
+    padding: 5px 0;
+    padding-top: 0;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.tariff-box .col-3 .amount {
+    text-align: center !important;
+    font-size: 15px;
+    color: #2c7eae;
+    font-weight: 700;
+}
+
+span#OpisNapake.validator.visible.odcitki {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: #EA5050;
+}
+
+.PanelMessages {
+    margin-top: 10px;
+    padding-top: 20px;
+}
+
+
+#ButtonPotrdiStanje {
+    margin-top: 60px;
+    font-size: 16px !Important;
+}
+
+#ddwOdjemna {
+    text-align: left !important;
+}
+
+#labelMerilnaMesta {
+    text-align: left;
+}
+
+#vnosOdcitkov {
+    margin-top: 20px;
+}
+
+body {
+}
+
+.site-title.title-1 {
+    min-width: 885px;
+}
+
+span#OpisUspesno.validator.visible.done.odcitki {
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: #005E9A;
+}
+
+.table-1 .merged {
+    border-bottom: #fff solid 1px;
+}
+
+.table-1 tbody tr.GridViewAlternatingRow td {
+    background: #fff;
+}
+
+.table-1 tbody tr.GridViewRow td {
+    background: #ebebeb;
+}
+
+
+.table-1 th a {
+    font-size: 13px;
+    font-weight: 700;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.table-2 tbody tr.GridViewAlternatingRow td {
+    background: #fff;
+}
+
+.table-2 tbody tr.GridViewRow td {
+    background: #ebebeb;
+}
+
+.data-widget .txt-data {
+    min-height: 35px;
+}
+
+.table-2 th a {
+    font-size: 13px;
+    font-weight: 700;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.table-2 table tr th {
+    color: white !Important;
+}
+
+.table-2 tr th:last-child {
+    color: white !Important;
+}
+
+#check_alert, #chxSplosniPogoji {
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-image: url(../img/icons/checkbox-1.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    cursor: pointer;
+    margin-right: 7px;
+}
+
+.forgot-password {
+    display: block !important;
+}
+
+span.msg {
+    display: block;
+    color: #FFF;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 11px 20px;
+}
+
+    span.msg.error {
+        background: #d92126;
+    }
+
+    span.msg.success {
+        background: #005E9A;
+    }
+
+#PanelGlava {
+    padding-top: 20px;
+}
+
+#PanelInformativniIzracun {
+    padding-top: 20px;
+}
+
+.tariff-box {
+    margin-bottom: 0px;
+}
+
+.success-msg {
+    display: none;
+    position: relative;
+    width: 100%;
+    background: #005E9A;
+    font-family: 'lato', sans-serif;
+    font-size: 12px;
+    color: #fff;
+    padding: 15px 10px;
+    z-index: 10;
+    border-radius: 3px;
+    margin-top: 7px;
+    margin-bottom: 0;
+}
+
+    .success-msg:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -10px;
+        right: 15px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 6px 10px 6px;
+        border-color: transparent transparent #005E9A transparent;
+    }
+
+.error-active .success-msg {
+    display: block;
+}
+
+/*.error-active .error-msg {
+    color: white !important;
+}*/
+
+span.error-msg[style*="inline"] {
+    display: block !Important;
+}
+
+#pnRegistration {
+    display: block;
+}
+
+/****************** VALIDATORJI *********************/
+span.validator {
+    display: none;
+    position: relative;
+    width: 100%;
+    background: #d92126;
+    font-family: 'lato', sans-serif;
+    font-size: 12px;
+    color: #fff;
+    padding: 15px 10px;
+    z-index: 10;
+    border-radius: 3px;
+    margin-top: 7px;
+    margin-bottom: 0;
+}
+
+    span.validator.visible {
+        display: block;
+    }
+
+.offline {
+    width: 600px;
+    position: absolute;
+    top: 220px;
+    left: -30px;
+    background: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding-top: 10px;
+}
+
+    .offline h2 {
+        font-family: 'lato', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #0069ab;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        text-align: center;
+        border-bottom: 1px solid #eeeeee;
+        padding: 20px 0;
+        margin-bottom: 28px;
+    }
+
+.logout {
+    width: 600px;
+    position: absolute;
+    top: 220px;
+    left: -30px;
+    background: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding-top: 10px;
+}
+
+    .logout h2 {
+        font-family: 'lato', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #0069ab;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        text-align: center;
+        border-bottom: 1px solid #eeeeee;
+        padding: 20px 0;
+        margin-bottom: 28px;
+    }
+
+.confirmation {
+    width: 600px;
+    position: absolute;
+    top: 220px;
+    left: -30px;
+    background: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding-top: 10px;
+}
+
+    .confirmation h2 {
+        font-family: 'lato', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #0069ab;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        text-align: center;
+        border-bottom: 1px solid #eeeeee;
+        padding: 20px 0;
+        margin-bottom: 28px;
+    }
+
+#PanelElektrikaZadnjeStanje {
+    min-height: 100px;
+}
+
+#PanelPlinZadnjeStanje {
+    min-height: 100px;
+}
+
+#tariffBoxPoraba {
+    margin-bottom: 50px;
+}
+
+#ConfirmationContent {
+    display: block;
+}
+
+.login {
+    min-height: 450px;
+}
+
+/*aktivacija merilnega mesta*/
+
+.aktivacija-PanelDodajUmakniMM {
+    margin-top: 10px;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    background-color: #2c7eae;
+    padding-left: 10px;
+    float: left;
+    width: 100%;
+    border-radius: 0 3px 3px 3px;
+}
+
+.aktivacija-container {
+    float: left;
+    margin-right: 10px;
+}
+
+    .aktivacija-container span {
+        width: 100%;
+        height: 35px;
+    }
+
+#lblChoose {
+    float: left;
+    margin-top: 60px;
+    width: 50px;
+    min-width: 25px;
+}
+
+#lblSpace {
+    float: left;
+    margin-top: 60px;
+    width: 100px;
+    min-width: 50px;
+}
+
+#lblZnak {
+    float: left;
+    margin-top: 10px;
+    width: 20px;
+}
+
+.aktivacija-col {
+    float: left;
+    margin-top: 10px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.aktivacija-txtStevilkaMM {
+    min-width: 150px;
+}
+
+.aktivacija-txtOznakaMM {
+    min-width: 210px;
+}
+
+.aktivacija-txtStRacuna {
+    min-width: 70px;
+}
+
+.aktivacija-button {
+    width: 118px;
+    margin-top: 0px;
+}
+
+.aktivacija-txtStevilkaMM, .aktivacija-txtOznakaMM, .aktivacija-txtDistribucija, .aktivacija-txtStRacuna, .aktivacija-txtOznakaSMM {
+    background: #b7ddf3;
+    float: left;
+    clear: left;
+}
+
+.aktivacija-txtOznakaSMM {
+    width: 200px;
+    clear: none !Important;
+}
+
+.aktivacija-Validation {
+    clear: both;
+    position: relative;
+    width: 100%;
+}
+
+    .aktivacija-Validation span {
+        float: left;
+        margin-top: 1px;
+    }
+
+.deaktivacija-button
+{
+    margin-top:0px !Important;
+    margin-right: 10px !Important;
+    margin-bottom: 5px !Important;
+}
+
+.service-info .col-1 .group
+{
+    margin-bottom:5px;
+    max-width:100%;
+    float: left;
+}
+
+#lblOznaka {
+    margin-right: 5px;
+}
+
+#lblNoData {
+    margin-bottom: 50px;
+}
+
+.amount {
+    height: 40px;
+}
+
+.notification {
+    font-family: 'lato', sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #808080;
+    margin-bottom: 0;
+}
+
+.service-info .tariff {
+    width: 66px;
+}
+
+.register-visible {
+    display: block;
+    width: 300px;
+    min-height: 460px;
+    position: absolute;
+    top: 190px;
+    left: -30px;
+    background: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding-top: 10px;
+    overflow: hidden;
+    padding-left: 10px;
+}
+
+    .register-visible h2 {
+        font-family: 'lato', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #0069ab;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        text-align: center;
+        border-bottom: 1px solid #eeeeee;
+        padding: 20px 0;
+        margin-bottom: 28px;
+        padding-left: 10px;
+    }
+
+.Tree-table table {
+    margin-bottom: 5px;
+}
+
+.Tree-RootNodeStyle {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0px;
+}
+
+.Tree-NodeStyle {
+    background: #ebebeb;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 0px;
+}
+
+.Tree-SelectedNodeStyle {
+}
+
+.Tree-ParentNodeStyle {
+    font-size: 14px;
+    width: 90%;
+}
+
+.Tree-LeafNodeStyle {
+    font-size: 14px;
+    width: 80%;
+}
+
+.Tree-HoverNodeStyle {
+    font-size: 14px;
+}
+
+.table-nav {
+    margin-bottom: 30px;
+}
+
+.input-datepicker {
+    width: 80%;
+    margin-right: 10px;
+}
+
+/* zaradi odstranitve postav iz informativnega izracuna */
+.info-calculation .total {
+    top: 0px;
+}
+
+.info-calculation #pie-chart-1 {
+    height: 300px !important;
+}
+
+.info-calculation .chart-wrapper {
+    width: 100%;
+}
+
+.info-calculation .inner {
+    min-height: 100px;
+}
+
+#lblSkupajZnesek {
+    margin-left: 10px;
+}
+
+.info-calculation .col-1 {
+    border: none;
+}
+
+#PlacilaIzvoz {
+    right: 155px;
+}
+
+.tariff-box.usage-tariff-1 .shorter .group {
+    width: 30% !Important;
+}
+
+.request-widget .row .hidden-content .group-txt ul li {
+    font-family: 'lato', sans-serif;
+    font-size: 11px;
+    color: #7d7d7d;
+    line-height: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    list-style: circle;
+    padding-top: 5px;
+}
+
+#PanelVnosEracun .data-widget.statement-widget .group-txt {
+    width: 100%;
+}
+
+/*banner notification*/
+
+#div-notification {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    background: #00599F;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+}
+
+    #div-notification .info-icon {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        width: 28px;
+        height: 28px;
+        text-indent: -999px;
+        overflow: hidden;
+        cursor: pointer;
+        background: url(../img/icons/info-icon.png) top left no-repeat;
+    }
+
+.container-notification {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: 30px;
+}
+
+.div-notification-col {
+    padding: 10px 0;
+}
+
+#div-notification p {
+    margin: 0;
+    padding: 0;
+    color: white;
+    line-height: 1.42857143;
+}
+
+#div-notification a {
+    font-weight: bold;
+    color: #fff;
+    text-decoration: underline;
+}
+
+/*administracija*/
+.adm-user {
+    float: left;
+    position: relative;
+}
+
+.adm-email {
+    float: left;
+    clear: left;
+    margin: 10px 0px 10px 0px;
+    position: relative;
+}
+
+.adm-loginas {
+    text-decoration: underline;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    display: block;
+    margin-right: 5px;
+}
+
+.adm-short .fancy-select {
+    width: 80% !Important;
+}
+
+.adm-short input {
+    width: 80% !Important;
+}
+
+.financeTocke {
+    height: 40px;
+    font-size: 13px;
+    text-transform: uppercase;
+    width: 100%;
+    color: #fff;
+    font-weight: 500;
+    overflow: hidden;
+    background: url(../img/icons/info-icon.png) top 5px left 5px no-repeat #00599F;
+    padding-left: 40px;
+    padding-top: 14px;
+}
+
+.notification-inside {
+    height: 40px;
+    font-size: 13px;
+    text-transform: uppercase;
+    width: 100%;
+    color: #fff;
+    font-weight: 500;
+    overflow: hidden;
+    background: url(../img/icons/info-icon.png) top 5px left 5px no-repeat #00599F;
+    padding-left: 40px;
+    padding-top: 14px;
+}
+
+#ButtonVnesiOdcitek
+{
+    font-size: 16px !Important;
+}
+#ButtonInformativni
+{
+    margin-top: 168px !Important;
+}
+
+.note{
+    width: 100%;
+    position: absolute;
+    }

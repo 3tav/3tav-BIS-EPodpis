@@ -1,0 +1,95 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WacomSignProLib
+{
+
+    public class SignProCommand {
+
+        public ApiFile file {get; set;}
+        public ApiConfiguration configuration { get; set; }
+
+        public ApiConfiguration configuration { get; set; }
+        public List<ApiSignature> signatures { get; set; }
+        public List<ApiInitials> initials { get; set; }
+    }
+
+    public class ApiFile
+    {
+        public ApiInput input { get; set; }
+        public ApiOutput output { get; set; }
+        public ApiAuthentication authentication { get; set; }
+    }
+
+    public class ApiInput
+    {
+        public string filesystem { get; set; }
+        public string http_get { get; set; }
+    }
+
+    public class ApiOutput
+    {
+        public string filesystem { get; set; }
+        public string http_post { get; set; }
+    }
+
+    public class ApiAuthentication
+    {
+        public string pdf_user_password { get; set; }
+        public string http_user { get; set; }
+        public string http_password { get; set; }
+    }
+
+    public class ApiConfiguration
+    {
+        public bool show_annotate { get; set; }
+        public bool show_manual_signature { get; set; }
+        public string error_handler_url { get; set; }
+        public bool process_text_tags { get; set; }
+    }
+    public class ApiSignature
+    {
+        public string name { get; set; }
+        public string signer { get; set; }
+        public string reason { get; set; }
+
+        public string type { get; set; }
+        public bool biometric { get; set; }
+        public bool required { get; set; }
+
+        public ApiSignatureLocation location { get; set; }
+    }
+
+    public class ApiSignatureLocation
+    {
+        public string Page { get; set; }
+        public string X { get; set; }
+        public string Y { get; set; }
+        public string W { get; set; }
+        public string H { get; set; }
+    }
+
+    public class ApiInitialsLocation
+    {
+        public string Page { get; set; }
+        public string X { get; set; }
+        public string Y { get; set; }
+        
+    }
+
+    public class ApiInitials
+    {
+        public string name { get; set; }
+        public string signer { get; set; }
+        public string reason { get; set; }
+
+        public string type { get; set; }
+        public bool biometric { get; set; }
+        public bool required { get; set; }
+
+        public ApiInitialsLocation location { get; set; }
+    }
+}

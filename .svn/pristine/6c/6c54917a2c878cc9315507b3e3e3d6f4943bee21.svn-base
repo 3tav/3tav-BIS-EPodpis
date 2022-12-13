@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>
+    <add key="EndpointUrl" value="https://ece-api.msign.si/v1/" />
+    <add key="ApiToken" value="CgSOSScqyxldaPklTNvShuNotYyoRjDA" />
+    <add key="ClientTimeout" value="1000" />
+
+    <add key="BasePath" value="R:\ECE_WEB\ebis_app\Obrazci\" />
+
+    
+
+    <add key="MailServer1" value="ece-si.mail.protection.outlook.com" />
+    <add key="MailServerPort1" value="25" />
+    <add key="MailServerUserName1" value="" />
+    <add key="MailServerPassword1" value="" />
+    <add key="MailFromDescription1" value="Prodaja ECE" />
+
+    <add key="MailServer2" value="mail.3tav.si" />
+    <add key="MailServerPort2" value="25" />
+    <add key="MailServerUserName2" value="mail3tav" />
+    <add key="MailServerPassword2" value="Sprejmi_posto_PROSIM!" />
+    <add key="MailFromDescription2" value="Prodaja ECE" />
+
+    <add key="MailServer" value="smtp.office365.com" />
+    <add key="MailServerPort" value="587" />
+    <add key="MailServerUserName" value="epogodba@ece.si" />
+    <add key="MailServerPassword" value="etkU2Dm9XcDm89cT" />
+    <add key="MailFromDescription" value="EPogodba ECE" />
+    <add key="MailFrom" value="epogodba@ece.si" />
+
+
+
+  </appSettings>
+  <connectionStrings>
+    <add name="connString4" connectionString="data source=10.50.196.41\SQL3TAV;initial catalog=db_is_ece_demoQ;persist security info=false;Application Name=EppsServices;user id=3tavServiceManager;pwd=3tavl3tal1ska32@ece;Connection Timeout=600;packet size=4096"/>
+    <add name="connStringDoc99" connectionString="data source=10.50.196.40,52740;initial catalog=db_doc_ece;persist security info=False;Application Name=EppsServices;user id=3tavServiceManager;pwd=3tavl3tal1ska32@ece;Connection Timeout=600;packet size=4096" />
+    
+    <add name="connString" connectionString="data source=10.50.196.40,52740;initial catalog=db_is_ece;persist security info=false;Application Name=EppsServices;user id=3tavServiceManager;pwd=3tavl3tal1ska32@ece;Connection Timeout=600;packet size=4096"/>
+    <add name="connString2" connectionString="data source=3tav-sql\sql2016;initial catalog=3tav_db_plinarna_mb;persist security info=False;Application Name=EceWeb;Integrated Security=SSPI;packet size=4096"/>
+    <add name="connString1" connectionString="data source=3tav-sql2\Instance1;initial catalog=db_web_ece;persist security info=False;Application Name=EceWeb;user id=sa;pwd=Prepozno2014;packet size=4096"/>
+    <add name="connStringDoc" connectionString="data source=3tav-sql2\Instance1;initial catalog=db_doc_ece;persist security info=False;Application Name=EceWeb;user id=sa;pwd=Prepozno2014;packet size=4096" />
+  </connectionStrings>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+  </startup>
+</configuration>

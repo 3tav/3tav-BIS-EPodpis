@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WacomSignProLib
+{
+    public class ProSignService
+    {
+        public void Init() { 
+        
+        }
+
+
+        public string GetJSONString() {
+           // string output = JsonConvert.SerializeObject(product);
+            return string.Empty;
+
+        }
+
+    }
+}

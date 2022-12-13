@@ -1,0 +1,620 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net.Mail;
+using System.Web;
+using System.IO;
+using System.Configuration;
+using System.Net;
+using System.Net.Mime;
+using System.Security;
+using System.Security.Cryptography.X509Certificates;
+
+namespace mSignAgent
+{
+    public class EmailSender
+    {
+        //private ILoggingProvider _loggingProvider;
+        private System.Net.NetworkCredential _credentials = null;
+        private string _smtp;
+        private int _port = 25;
+        private bool _enableSSL = false;
+        private string _username;
+        private string _password;
+        private string _from;
+        private string _fromDescription;
+        private bool _overrideServerCertificateValidation;
+        public EmailSender()
+        {
+            try
+            {
+                _smtp = ConfigurationManager.AppSettings["MailServer"].ToString();
+                _port = Convert.ToInt32(ConfigurationManager.AppSettings["MailServerPort"].ToString());
+                _username = ConfigurationManager.AppSettings["MailServerUserName"].ToString();
+                _password = ConfigurationManager.AppSettings["MailServerPassword"].ToString();
+                _from = ConfigurationManager.AppSettings["MailFrom"].ToString();
+                _fromDescription = ConfigurationManager.AppSettings["MailFromDescription"].ToString();
+                _enableSSL = (ConfigurationManager.AppSettings["MailEnableSSL"].ToString() == "true" ? true : false);
+                _overrideServerCertificateValidation = (ConfigurationManager.AppSettings["MailOverrideServerCertificateValidation"].ToString() == "true" ? true : false);
+
+                if (_username.Length > 0)
+                {
+                    _credentials = new System.Net.NetworkCredential(_username, _password);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(string.Format("Napaka pri branju konfiguracije: {0}", ex.Message));
+            }
+        }
+
+        public EmailSender(string smtp)
+        {
+            _smtp = smtp;
+            //_loggingProvider = loggingProvider;
+            _port = 25;
+            _enableSSL = true;
+        }
+
+        public EmailSender(string smtp, string username, string pass)
+        {
+            _credentials = new System.Net.NetworkCredential(username, pass);
+            _smtp = smtp;
+            //_loggingProvider = loggingProvider;
+            _port = 25;
+            _enableSSL = false;
+        }
+
+        public EmailSender(string smtp, string username, string pass, int port, bool enableSSL)
+        {
+            _credentials = new System.Net.NetworkCredential(username, pass);
+            _smtp = smtp;
+            // _loggingProvider = loggingProvider;
+            _port = port;
+            _enableSSL = enableSSL;
+        }
+
+        public void PosljiEMail(int stUporabnika, string emailFrom, string emailTo, string subject, string content, bool isHtml)
+        {
+            try
+            {
+                MailMessage mm = new MailMessage(emailFrom, emailTo, subject, content);
+                mm.IsBodyHtml = isHtml;
+                SmtpClient sc = new SmtpClient(_smtp);
+                if (_credentials != null) sc.Credentials = _credentials;
+                sc.Port = _port;
+                sc.EnableSsl = _enableSSL;
+
+                sc.Send(mm);
+            }
+            catch (Exception ee)
+            {
+                // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+            }
+        }
+
+        //public void PosljiEMail(string emailFrom, string emailTo, string subject, string content, Attachment att, out string napaka)
+        //{
+        //    napaka = string.Empty;
+        //    try
+        //    {
+        //        MailMessage mm = new MailMessage(emailFrom, emailTo, HttpUtility.HtmlDecode(RemoveHTML(subject)), content);
+        //        mm.IsBodyHtml = true;
+        //        mm.Attachments.Add(att);
+        //        SmtpClient sc = new SmtpClient(_smtp);
+        //        if (_credentials != null) sc.Credentials = _credentials;
+        //        sc.Port = _port;
+        //        sc.EnableSsl = _enableSsl;
+        //        sc.Send(mm);
+        //    }
+        //    catch (Exception ee)
+        //    {
+        //        // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+        //        napaka = ee.Message;
+        //        return 0;
+        //    }
+
+        //    return 1;
+        //}
+
+        public int PosljiEmail(string posiljatelj, string emailTo, string content, string subject, out string napaka)
+        {
+            napaka = string.Empty;
+            try
+            {
+                MailMessage mm = new MailMessage(posiljatelj, emailTo, subject, content);
+                mm.From = new MailAddress(posiljatelj, _fromDescription);
+
+                mm.IsBodyHtml = true;
+
+                var sc = new SmtpClient(_smtp);
+                sc.UseDefaultCredentials = false;
+                if (_credentials != null)
+                    sc.Credentials = _credentials;
+
+                sc.Port = _port;
+
+                sc.DeliveryMethod = SmtpDeliveryMethod.Network;
+                sc.EnableSsl = _enableSSL;
+
+                sc.Send(mm);
+            }
+            catch (Exception ee)
+            {
+                // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+                napaka = ee.Message;
+                return 0;
+            }
+
+            return 1;
+        }
+
+        public int PosljiEmailT(string posiljatelj, string emailTo, string content, string subject, out string napaka)
+        {
+            napaka = string.Empty;
+            try
+            {
+                MailMessage mm = new MailMessage(posiljatelj, emailTo, subject, content);
+                mm.From = new MailAddress(posiljatelj, _fromDescription);
+
+                mm.IsBodyHtml = true;
+                SmtpClient sc = new SmtpClient(_smtp);
+                sc.Credentials = _credentials;
+                sc.Port = 25;
+                sc.EnableSsl = _enableSSL;
+                sc.Send(mm);
+            }
+            catch (Exception ee)
+            {
+                // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+                napaka = ee.Message;
+                return 0;
+            }
+
+            return 1;
+        }
+
+
+
+        public int PosljiEMail(string emailFrom, string emailTo, string subject, string content, out string napaka)
+        {
+            napaka = string.Empty;
+            try
+            {
+                MailMessage mm = new MailMessage(emailFrom, emailTo, subject, content);
+                mm.IsBodyHtml = true;
+                SmtpClient sc = new SmtpClient(_smtp);
+                if (_credentials != null) sc.Credentials = _credentials;
+                sc.Port = _port;
+                sc.EnableSsl = _enableSSL;
+                sc.Send(mm);
+            }
+            catch (Exception ee)
+            {
+                napaka = ee.Message;
+                return 0;
+                // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+            }
+            return 1;
+        }
+
+
+
+        public int PosljiEMail(string emailFrom, string emailTo, string subject, string content, Attachment att, out string napaka)
+        {
+            napaka = string.Empty;
+            try
+            {
+                MailMessage mm = new MailMessage(emailFrom, emailTo, subject, content);
+                mm.IsBodyHtml = true;
+                mm.Attachments.Add(att);
+                SmtpClient sc = new SmtpClient(_smtp);
+                if (_credentials != null) sc.Credentials = _credentials;
+                sc.Port = _port;
+                sc.EnableSsl = _enableSSL;
+                sc.Send(mm);
+            }
+            catch (Exception ee)
+            {
+                napaka = ee.Message;
+                return 0;
+                // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+            }
+            return 1;
+        }
+
+        public int PosljiEmailMime(string posiljatelj, string to, string htmlBody, string subject, List<MailInlineAttachment> attachments, out string napaka)
+        {
+            napaka = string.Empty;
+            try
+            {
+                AlternateView avHtml = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
+
+                foreach (var a in attachments)
+                {
+                    var inline = new LinkedResource(a.FilePath, MediaTypeNames.Image.Jpeg);
+                    inline.ContentId = a.Tag;
+                    avHtml.LinkedResources.Add(inline);
+                }
+
+                MailMessage mail = new MailMessage();
+                mail.AlternateViews.Add(avHtml);
+                foreach (var a in attachments)
+                {
+                    var att = new Attachment(a.FilePath);
+                    att.ContentDisposition.Inline = true;
+                    mail.Attachments.Add(att);
+                }
+
+                mail.From = new MailAddress(posiljatelj, _fromDescription);
+                mail.To.Add(to);
+                mail.Subject = subject;
+                mail.Body = System.Web.HttpUtility.HtmlDecode(htmlBody);
+                mail.IsBodyHtml = true;
+
+                var sc = new SmtpClient(_smtp);
+                sc.UseDefaultCredentials = false;
+                if (_credentials != null)
+                    sc.Credentials = _credentials;
+
+                sc.Port = _port;
+                
+                sc.DeliveryMethod = SmtpDeliveryMethod.Network;
+                sc.EnableSsl = _enableSSL;
+
+                if (_overrideServerCertificateValidation)
+                    ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+
+                sc.Send(mail);
+            }
+            catch (Exception ee)
+            {
+                // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+                napaka = ee.Message;
+                return 0;
+            }
+
+            return 1;
+        }
+
+        public int PosljiEmailMime(string posiljatelj, string to, string cc, string htmlBody, string subject, List<MailInlineAttachment> attachments, out string napaka)
+        {
+            napaka = string.Empty;
+            try
+            {
+                AlternateView avHtml = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
+
+                foreach (var a in attachments)
+                {
+                    var inline = new LinkedResource(a.FilePath, MediaTypeNames.Image.Jpeg);
+                    inline.ContentId = a.Tag;
+                    avHtml.LinkedResources.Add(inline);
+                }
+
+                MailMessage mail = new MailMessage();
+                mail.AlternateViews.Add(avHtml);
+                foreach (var a in attachments)
+                {
+                    var att = new Attachment(a.FilePath);
+                    att.ContentDisposition.Inline = true;
+                    mail.Attachments.Add(att);
+                }
+
+                mail.From = new MailAddress(posiljatelj, _fromDescription);
+                mail.To.Add(to);
+                mail.CC.Add(cc);
+                mail.Subject = subject;
+                mail.Body = System.Web.HttpUtility.HtmlDecode(htmlBody);
+                mail.IsBodyHtml = true;
+
+                var sc = new SmtpClient(_smtp);
+                sc.UseDefaultCredentials = false;
+                if (_credentials != null)
+                    sc.Credentials = _credentials;
+
+                sc.Port = _port;
+
+                sc.DeliveryMethod = SmtpDeliveryMethod.Network;
+                sc.EnableSsl = _enableSSL;
+
+                if (_overrideServerCertificateValidation)
+                    ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+
+                sc.Send(mail);
+            }
+            catch (Exception ee)
+            {
+                // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+                napaka = ee.Message;
+                return 0;
+            }
+
+            return 1;
+        }
+
+        public int PosljiEmailMime(string posiljatelj, string to, string htmlBody, string subject, List<MailInlineAttachment> attachments, Attachment attachment, out string napaka)
+        {
+            napaka = string.Empty;
+            try
+            {
+                AlternateView avHtml = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
+
+                foreach (var a in attachments)
+                {
+                    var inline = new LinkedResource(a.FilePath, MediaTypeNames.Image.Jpeg);
+                    inline.ContentId = a.Tag;
+                    avHtml.LinkedResources.Add(inline);
+                }
+
+                MailMessage mail = new MailMessage();
+                mail.AlternateViews.Add(avHtml);
+                foreach (var a in attachments)
+                {
+                    var att = new Attachment(a.FilePath);
+                    att.ContentDisposition.Inline = true;
+                    mail.Attachments.Add(att);
+                }
+
+                mail.From = new MailAddress(posiljatelj, _fromDescription);
+                mail.To.Add(to);
+                mail.Subject = subject;
+                mail.Body = System.Web.HttpUtility.HtmlDecode(htmlBody);
+                mail.IsBodyHtml = true;
+
+                mail.Attachments.Add(attachment);
+
+                SmtpClient sc = new SmtpClient(_smtp);
+                sc.Credentials = _credentials;
+                sc.Port = 25;
+                sc.EnableSsl = _enableSSL;
+                sc.Send(mail);
+            }
+            catch (Exception ee)
+            {
+                // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+                napaka = ee.Message;
+                return 0;
+            }
+
+            return 1;
+        }
+
+        public int PosljiEmailMimeOld(string posiljatelj, string to, string htmlBody, string subject, List<MailInlineAttachment> attachments, List<Attachment> attachmentFiles, out string napaka)
+        {
+            napaka = string.Empty;
+            try
+            {
+                AlternateView avHtml = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
+
+                foreach (var a in attachments)
+                {
+                    var inline = new LinkedResource(a.FilePath, MediaTypeNames.Image.Jpeg);
+                    inline.ContentId = a.Tag;
+                    avHtml.LinkedResources.Add(inline);
+                }
+
+                MailMessage mail = new MailMessage();
+                mail.AlternateViews.Add(avHtml);
+                foreach (var a in attachments)
+                {
+                    var att = new Attachment(a.FilePath);
+                    att.ContentDisposition.Inline = true;
+                    mail.Attachments.Add(att);
+                }
+
+                mail.From = new MailAddress(posiljatelj, _fromDescription);
+                mail.To.Add(to);
+                mail.Subject = subject;
+                mail.Body = HttpUtility.HtmlDecode(htmlBody);
+                mail.IsBodyHtml = true;
+
+                foreach (var a in attachmentFiles)
+                {
+                    mail.Attachments.Add(a);
+                }
+
+                var sc = new SmtpClient(_smtp);
+
+                if (_credentials != null)
+                    sc.Credentials = _credentials;
+
+
+                sc.Port = 25;
+                //sc.EnableSsl = true;
+
+                if (_overrideServerCertificateValidation)
+                    ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+
+                sc.Send(mail);
+            }
+            catch (Exception ee)
+            {
+                // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+                napaka = ee.Message;
+                return 0;
+            }
+
+            return 1;
+        }
+
+        public int PosljiEmailMime(string posiljatelj, string to, string htmlBody, string subject, List<MailInlineAttachment> attachments, List<Attachment> attachmentFiles, out string napaka)
+        {
+            napaka = string.Empty;
+            try
+            {
+                AlternateView avHtml = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
+
+                foreach (var a in attachments)
+                {
+                    var inline = new LinkedResource(a.FilePath, MediaTypeNames.Image.Jpeg);
+                    inline.ContentId = a.Tag;
+                    avHtml.LinkedResources.Add(inline);
+                }
+
+                MailMessage mail = new MailMessage();
+                mail.AlternateViews.Add(avHtml);
+                foreach (var a in attachments)
+                {
+                    var att = new Attachment(a.FilePath);
+                    att.ContentDisposition.Inline = true;
+                    mail.Attachments.Add(att);
+                }
+
+                mail.From = new MailAddress(posiljatelj, _fromDescription);
+                mail.To.Add(to);
+                mail.Subject = subject;
+                mail.Body = HttpUtility.HtmlDecode(htmlBody);
+                mail.IsBodyHtml = true;
+
+                foreach (var a in attachmentFiles)
+                {
+                    mail.Attachments.Add(a);
+                }
+
+
+                var sc = new SmtpClient(_smtp);
+                sc.UseDefaultCredentials = false;
+                if (_credentials != null)
+                    sc.Credentials = _credentials;
+
+                sc.Port = _port;
+
+                sc.DeliveryMethod = SmtpDeliveryMethod.Network;
+                sc.EnableSsl = _enableSSL;
+
+                if (_overrideServerCertificateValidation)
+                    ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
+
+                sc.Send(mail);
+            }
+            catch (Exception ee)
+            {
+                // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+                napaka = ee.Message;
+                return 0;
+            }
+
+            return 1;
+        }
+
+        public int PosljiEmail(string posiljatelj, string emailTo, string content, string subject, string filePath, out string napaka)
+        {
+            napaka = string.Empty;
+            try
+            {
+                MailMessage mm = new MailMessage(posiljatelj, emailTo, HttpUtility.HtmlDecode(RemoveHTML(subject)), content);
+                mm.From = new MailAddress(posiljatelj, _fromDescription);
+
+                mm.IsBodyHtml = true;
+
+                //Attachment(new MemoryStream(myBytes), name);
+                Attachment attachment = new Attachment(filePath, MediaTypeNames.Application.Octet);
+                ContentDisposition disposition = attachment.ContentDisposition;
+                disposition.CreationDate = File.GetCreationTime(filePath);
+                disposition.ModificationDate = File.GetLastWriteTime(filePath);
+                disposition.ReadDate = File.GetLastAccessTime(filePath);
+                disposition.FileName = Path.GetFileName(filePath);
+                disposition.Size = new FileInfo(filePath).Length;
+                disposition.DispositionType = DispositionTypeNames.Attachment;
+                mm.Attachments.Add(attachment);
+
+
+                SmtpClient sc = new SmtpClient(_smtp);
+                sc.Credentials = _credentials;
+                sc.Port = 25;
+                sc.EnableSsl = _enableSSL;
+                sc.Send(mm);
+            }
+            catch (Exception ee)
+            {
+                // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+                napaka = ee.Message;
+                return 0;
+            }
+
+            return 1;
+        }
+        //public int PosljiEmailAsync(string posiljatelj, string emailTo, string content, string subject, List<EMailiPriponka> priponke = null)
+        //{
+        //    try
+        //    {
+        //        MailMessage mm = new MailMessage(posiljatelj, emailTo, HttpUtility.HtmlDecode(subject.RemoveHTML()), content);
+        //        mm.IsBodyHtml = true;
+        //        mm.BodyEncoding = System.Text.Encoding.UTF8;
+        //        mm.SubjectEncoding = System.Text.Encoding.UTF8;
+
+        //        if (priponke != null)
+        //        {
+        //            foreach (EMailiPriponka priponka in priponke)
+        //            {
+        //                priponka.OutputStream.Position = 0;
+        //                mm.Attachments.Add(new Attachment(priponka.OutputStream, priponka.FileName, priponka.MediaType));
+        //            }
+        //        }
+
+        //        SmtpClient sc = new SmtpClient(_smtp);
+        //        if (_credentials != null) sc.Credentials = _credentials;
+        //        sc.Port = _port;
+        //        sc.EnableSsl = _enableSsl;
+
+        //        sc.SendCompleted += new SendCompletedEventHandler(SendCompletedCallback);
+        //        MailResponse response = new MailResponse();
+        //        response.emailTo = emailTo;
+        //        response.subject = subject.RemoveHTML();
+        //        response.content = content;
+
+        //        sc.SendAsync(mm, response);
+
+        //        return 0;
+        //    }
+        //    catch (Exception ee)
+        //    {
+        //       // _loggingProvider.Log(-1, "System", LoggingErrorType.Error, string.Format("Napaka pri pošiljanju emaila: {0}, {1}, {2} ...Napaka: {3}", emailTo, subject, content, ee.Message));
+
+        //        return -1;
+        //    }
+
+
+        //}
+
+        public string RemoveHTML(string input)
+        {
+            input = input.Replace("<p>", "");
+            input = input.Replace("</p>", "");
+            input = input.Replace("\n", "");
+            input = input.Replace("\r", "");
+
+            return input;
+        }
+
+        //private void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
+        //{
+        //    MailResponse token = (MailResponse)e.UserState;
+        // //   _loggingProvider.Log(-1, "System", LoggingErrorType.NoError, string.Format("Email uspešno poslan: {0}, {1}, {2}", token.emailTo, token.subject, token.content));
+        //}
+
+        public class EMailiPriponka
+        {
+            public MemoryStream OutputStream { get; set; }
+            public string FileName { get; set; }
+            public string MediaType { get; set; }
+        }
+
+        private class MailResponse
+        {
+            public string emailTo;
+            public string subject;
+            public string content;
+        }
+    }
+
+    public class MailInlineAttachment
+    {
+        public string Tag;
+        public string FileName;
+        public string FilePath;
+    }
+}

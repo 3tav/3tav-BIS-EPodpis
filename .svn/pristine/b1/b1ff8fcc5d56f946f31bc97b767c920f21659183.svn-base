@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace mSignAgent
+{
+    
+    public class DispatchService
+    {
+       // Dictionary<string, IPerun3Service> _mapper;
+        public void Init()
+        {
+            
+        }
+
+        public void DispatchMethod(string method, string args)
+        {
+            var svc = new mSignAgentLib();
+
+            
+            if (method == Methods.CreatePDF)
+            {
+                //var argsArray = args.Split()
+
+
+                string sifraObrazca = string.Empty;
+                int varianta = 0;
+                int id = 0; 
+                string naziv = string.Empty; 
+                string targetDir = string.Empty;
+
+                svc.CreatePDF(sifraObrazca, varianta, id, naziv, targetDir);
+            }
+
+
+            //if (_mapper.TryGetValue(method, out svc) == false)
+            //    throw new Exception(string.Format("Metoda {0} ni implementirana!", method));
+
+            //try
+            //{
+            //    svc.Init();
+            //    svc.Execute(args);
+            //}
+            //catch(Exception ex)
+            //{
+            //    throw new Exception(string.Format("Napaka pri klicu {0}: {1}", method, ex.Message));
+            //}
+
+        }
+    }
+}

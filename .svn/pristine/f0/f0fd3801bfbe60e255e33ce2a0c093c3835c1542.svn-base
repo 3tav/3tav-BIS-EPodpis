@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <appSettings>    
+    <add key="EndpointUrl" value="https://3tav-api.msign.si/v1/" />
+    <add key="ApiToken" value="OFqMSHaNoJNLis85Q8p16FGT8bpVhmbY" />
+    <add key="ClientTimeout" value="1000" />
+  </appSettings>
+  <connectionStrings>    
+    <add name="connString" connectionString="data source=3tav-sql2\Instance1;initial catalog=db_web_ece_test;persist security info=False;Application Name=EceWeb;user id=sa;pwd=Prepozno2014;packet size=4096"/>
+    <add name="connStringDoc" connectionString="data source=3tav-sql2\Instance1;initial catalog=db_doc_ece;persist security info=False;Application Name=EceWeb;user id=sa;pwd=Prepozno2014;packet size=4096" />
+  </connectionStrings>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+    </startup>
+</configuration>
